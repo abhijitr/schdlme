@@ -1,0 +1,10 @@
+<% form_for @meeting do |meeting_form| %>
+  <% for availability in @meeting.availabilities %>
+	<%= meeting_form.fields_for :availabilities do |avail_form| %>
+	  Start: <%= avail_form.text_field :start %> <br />
+	  End: <%= avail_form.text_field :end %> <br />
+	  Duration: <%= avail_form.text_field :duration %> <br />
+	<% end %>
+  <% end %>
+  <%= meeting_form.submit %>
+<% end %>
