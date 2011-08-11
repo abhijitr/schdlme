@@ -13,7 +13,8 @@
 
 <h1>Drag in the calendar to indicate your availability</h1>
 <% form_for @meeting do |meeting_form| %>
-  <div style="display:none">
+  <div id="avail_fields">
+  <br />
   <% for availability in @meeting.availabilities %>
     <%= meeting_form.fields_for :availabilities do |avail_form| %>
       Start: <%= avail_form.text_field :start %> <br />
@@ -22,6 +23,8 @@
     <% end %>
   <% end %>
   </div>
-  <%= meeting_form.submit %>
+  <a href="#" id="new_avail">+Add timeslot</a>
+  <br />
+  <br /> <%= meeting_form.submit %>
 <% end %>
 <div id='calendar'></div>
