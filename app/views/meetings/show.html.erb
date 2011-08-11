@@ -1,0 +1,6 @@
+<div class="page_body">
+  <div class="title"> Some timeslots that are available: </div>
+  <% for avail in @meeting.availabilities %>
+    <div class="availability"> <%= avail.start.localtime.to_s :long %> - <%= avail.end.localtime.to_s :long %> </div> 
+  <% end %>
+</div>

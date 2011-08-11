@@ -14,4 +14,8 @@ class MeetingsController < ApplicationController
     redirect_to @meeting
   end
 
+  def show
+    @meeting = Meeting.find(params[:id])
+  end
+
 end
