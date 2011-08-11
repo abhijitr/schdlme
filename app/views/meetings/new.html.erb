@@ -1,55 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head>
-
-	<link rel='stylesheet' type='text/css' href='reset.css' />
+<% content_for :additional_styles do %>
 	<link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css' />
-
-    <!--
-    <link rel='stylesheet' type='text/css' href='../libs/css/smoothness/jquery-ui-1.8.11.custom.css' />
-    -->
-
-
 	<link rel='stylesheet' type='text/css' href='/stylesheets/jquery.weekcalendar.css' />
 	<link rel='stylesheet' type='text/css' href='/stylesheets/new.css' />
-									
-    <!--
-	<link rel='stylesheet' type='text/css' href='../skins/default.css' />
-    -->
+<% end %>
 
-
-	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+<% content_for :additional_scripts do %>
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js'></script>
-    
-   <!--
-   <script type='text/javascript' src='../libs/jquery-1.4.4.min.js'></script>
-    <script type='text/javascript' src='../libs/jquery-ui-1.8.11.custom.min.js'></script>
-	<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
-  <script>
-	  $(document).ready(function(){
-	    $('#switcher').themeswitcher();
-	  });
-  </script>
-  -->
 	<script type="text/javascript" src="/javascripts/date.js"></script>
 	<script type='text/javascript' src='/javascripts/jquery.weekcalendar.js'></script>
 	<script type='text/javascript' src='/javascripts/new.js'></script>
+<% end %>
 
-</head>
-<body> 
-	<h1>Drag in the calendar to indicate your availability</h1>
-    <% form_for @meeting do |meeting_form| %>
-      <div style="visibility:hidden">
-      <% for availability in @meeting.availabilities %>
-        <%= meeting_form.fields_for :availabilities do |avail_form| %>
-          Start: <%= avail_form.text_field :start %> <br />
-          End: <%= avail_form.text_field :end %> <br />
-          Duration: <%= avail_form.text_field :duration %> <br />
-        <% end %>
-      <% end %>
-      </div>
-      <%= meeting_form.submit %>
+<h1>Drag in the calendar to indicate your availability</h1>
+<% form_for @meeting do |meeting_form| %>
+  <div style="display:none">
+  <% for availability in @meeting.availabilities %>
+    <%= meeting_form.fields_for :availabilities do |avail_form| %>
+      Start: <%= avail_form.text_field :start %> <br />
+      End: <%= avail_form.text_field :end %> <br />
+      Duration: <%= avail_form.text_field :duration %> <br />
     <% end %>
-	<div id='calendar'></div>
-</body>
-</html>
+  <% end %>
+  </div>
+  <%= meeting_form.submit %>
+<% end %>
+<div id='calendar'></div>
