@@ -1,4 +1,6 @@
 <% form_for @meeting do |meeting_form| %>
+  <div id="avail_fields">
+  <br />
   <% for availability in @meeting.availabilities %>
 	<%= meeting_form.fields_for :availabilities do |avail_form| %>
 	  Start: <%= avail_form.text_field :start %> <br />
@@ -6,5 +8,8 @@
 	  Duration: <%= avail_form.text_field :duration %> <br />
 	<% end %>
   <% end %>
-  <%= meeting_form.submit %>
+  </div>
+  <a href="#" id="new_avail">+Add timeslot</a>
+  <br />
+  <br /> <%= meeting_form.submit %>
 <% end %>
