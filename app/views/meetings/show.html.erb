@@ -1,6 +1,22 @@
-<div class="page_body">
-  <div class="title"> Some timeslots that are available: </div>
+<% content_for :additional_styles do %>
+	<link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css' />
+	<link rel='stylesheet' type='text/css' href='/stylesheets/jquery.weekcalendar.css' />
+	<link rel='stylesheet' type='text/css' href='/stylesheets/new.css' />
+<% end %>
+
+<% content_for :additional_scripts do %>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js'></script>
+	<script type="text/javascript" src="/javascripts/date.js"></script>
+	<script type='text/javascript' src='/javascripts/jquery.weekcalendar.js'></script>
+	<script type='text/javascript' src='/javascripts/new.js'></script>
+<% end %>
+
+<div id="calendar-data">
   <% for avail in @meeting.availabilities %>
-    <div class="availability"> <%= avail.start.localtime.to_s :long %> - <%= avail.end.localtime.to_s :long %> </div> 
+      <div class="availability"> 
+          <div class="start"><%= avail.start.localtime.to_s :long %></div>
+          <div class="end"><%= avail.end.localtime.to_s :long %></div>
+      </div> 
   <% end %>
 </div>
+<div id='calendar'></div>

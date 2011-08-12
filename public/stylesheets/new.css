@@ -1,3 +1,7 @@
+html {
+    overflow-y: hidden;
+}
+
 body {
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 	font-size: 83.33%;
@@ -77,3 +81,11 @@ ol.formatted li {
 	list-style-type: decimal;
 }
 #switcher{float:left;}
+
+#calendar-data {
+    display: none;
+}
+
+#calendar-form {
+    display: none;
+}
