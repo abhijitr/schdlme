@@ -10,8 +10,8 @@ class Availability < ActiveRecord::Base
   end
 
   def normalize_date(date)
-    if date.is_a? String
-	  date = Time.parse(date)
+	if date.is_a? String
+      date = DateTime.strptime(date, "%m/%d/%Y %H:%M")	
 	end
     date
   end

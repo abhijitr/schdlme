@@ -14,8 +14,8 @@
 <div id="calendar-data">
   <% for avail in @meeting.availabilities %>
       <div class="availability"> 
-          <div class="start"><%= avail.start.localtime.to_s :long %></div>
-          <div class="end"><%= avail.end.localtime.to_s :long %></div>
+          <div class="start"><%= avail.start.to_s :long %></div>
+          <div class="end"><%= avail.end.to_s :long %></div>
       </div> 
   <% end %>
 </div>
