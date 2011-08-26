@@ -1,4 +1,6 @@
 class MeetingsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # Form used to generate new meetings
   def new
     @meeting = Meeting.new
