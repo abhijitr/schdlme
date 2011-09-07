@@ -11,7 +11,8 @@ class MeetingsController < ApplicationController
   def create
 	@meeting = Meeting.create(params[:meeting])
   
-    redirect_to url_for(@meeting) + "?key=" + @meeting.uuid
+    print "URL", url_for(@meeting) + "?key=" + @meeting.uuid
+	redirect_to url_for(@meeting) + "?key=" + @meeting.uuid
   end
 
   def show
