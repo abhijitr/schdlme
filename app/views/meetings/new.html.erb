@@ -12,7 +12,7 @@
 <% end %>
 
 <h1>Drag in the calendar to indicate your availability</h1>
-<% form_for @meeting do |meeting_form| %>
+<%= form_for @meeting do |meeting_form| %>
   <div id="calendar-form">
   </div>
   <%= meeting_form.submit %>

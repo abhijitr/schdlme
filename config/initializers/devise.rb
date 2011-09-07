@@ -1,5 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
+require 'openid/store/filesystem'
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
@@ -13,6 +14,18 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+
+  config.omniauth :google_hybrid, OpenID::Store::Filesystem.new('/tmp'), 
+       :name => 'google_hybrid', 
+	   :identifier => 'https://www.google.com/accounts/o8/id', 
+	   :scope => ['http://www.google.com/calendar/feeds/', 'https://www.google.com/calendar/feeds/', 'https://www.google.com/m8/feeds/'],
+	   :consumer_key => 'radiant-samurai-330.heroku.com',
+	   :consumer_secret => 'DjG5bDkaMGId6enXoTaun9Wu'
+  
+
+# config.omniauth :facebook, FACEBOOK_APP_ID, FACEBOOK_SECRET,
+#    {:client_options => {:ssl => {:ca_file => '/opt/local/share/curl/curl-ca-bundle.crt'}}}
+
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

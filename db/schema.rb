@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110826020547) do
+ActiveRecord::Schema.define(:version => 20110902203146) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "availabilities", :force => true do |t|
     t.integer  "meeting_id"
@@ -24,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20110826020547) do
   create_table "meetings", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid"
   end
 
   create_table "users", :force => true do |t|
@@ -39,6 +50,10 @@ ActiveRecord::Schema.define(:version => 20110826020547) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "name"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

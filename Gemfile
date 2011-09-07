@@ -3,8 +3,13 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.7'
 gem 'rake', '0.8.7'
 
+gem 'jquery-rails', '>=1.0.12'
 gem 'sqlite3-ruby', "1.2.5", :require => 'sqlite3'
+
 gem 'devise', '1.4.2'
+gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+
+gem 'edave-gcal4ruby', '0.6.0', :git => 'git://github.com/edave/GCal4Ruby.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
