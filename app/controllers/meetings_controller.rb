@@ -1,6 +1,9 @@
 class MeetingsController < ApplicationController
   before_filter :authenticate_user!, :except => ['show']
-  
+ 
+  # TODO(sasank): Figure out better place to set this based on a user timezone attrib
+  Time.zone = -8
+
   # Form used to generate new meetings
   def new
     @meeting = Meeting.new
